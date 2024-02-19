@@ -1,0 +1,47 @@
+ASSIGNMENT - 5
+CREATE TABLE DEPT (
+    DEPTNO INT PRIMARY KEY,
+    DEPTNAME VARCHAR(255) NOT NULL
+);
+CREATE TABLE EMP (
+    EMPNO INT PRIMARY KEY,
+    EMPNAME VARCHAR(255) NOT NULL,
+    DEPTNO INT,
+    JOB VARCHAR(255),
+    SALARY DECIMAL(10, 2),
+    FOREIGN KEY (DEPTNO) REFERENCES DEPT(DEPTNO)
+);
+
+-- Insert records into DEPT table one by one
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (1, 'Sales');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (2, 'Marketing');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (3, 'Finance');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (4, 'Human Resources');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (5, 'IT');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (6, 'Engineering');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (7, 'Customer Service');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (8, 'Research and Development');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (9, 'Legal');
+INSERT INTO DEPT (DEPTNO, DEPTNAME) VALUES (10, 'Administration');
+
+-- Insert records into EMP table one by one
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (101, 'John Doe', 1, 'Sales Manager', 60000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (102, 'Jane Smith', 1, 'Sales Representative', 45000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (103, 'Mike Johnson', 2, 'Marketing Specialist', 50000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (104, 'Emily Davis', 2, 'Marketing Manager', 65000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (105, 'Chris Brown', 3, 'Financial Analyst', 55000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (106, 'Amanda White', 3, 'Finance Manager', 70000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (107, 'David Lee', 4, 'HR Coordinator', 48000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (108, 'Sophia Turner', 5, 'IT Specialist', 60000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (109, 'Ryan Taylor', 6, 'Software Engineer', 75000.00);
+INSERT INTO EMP (EMPNO, EMPNAME, DEPTNO, JOB, SALARY) VALUES (110, 'Olivia Walker', 7, 'Customer Service Representative', 48000.00);
+
+SELECT COUNT(*) AS TotalEmployees FROM EMP;
+
+select* from emp,dept
+where emp.deptno=dept.deptno
+    order by emp.deptno;
+
+select sum(salary) as total,max(salary) as maximum,min(salary) as minimum
+from emp
+where deptno=30;
